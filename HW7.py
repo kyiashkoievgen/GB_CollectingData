@@ -24,6 +24,8 @@ driver.implicitly_wait(60)
 find = driver.find_element(By.XPATH, '//input')
 find.send_keys('GeForce GTX 1080 Ti')
 find.send_keys(Keys.ENTER)
+wait = WebDriverWait(driver, 60)
+wait.until(EC.presence_of_element_located((By.XPATH, '//span[contains(text(),"След")]')))
 while 1:
     AD = {}
     for el in driver.find_elements(By.XPATH, '//meta[@itemprop="price"]'):
